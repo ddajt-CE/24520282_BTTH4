@@ -1,0 +1,38 @@
+# depslib dependency file v1.0
+1746022475 source:d:\oop\24520282_btth4\ngoaite.cpp
+	"NgoaiTe.h"
+	"GiaoDich.h"
+
+1746022433 source:d:\oop\24520282_btth4\vang.cpp
+	"Vang.h"
+	"GiaoDich.h"
+
+1746065317 source:d:\oop\24520282_btth4\main.cpp
+	"NgoaiTe.h"
+	"GiaoDich.h"
+	"Vang.h"
+
+1746018214 d:\oop\24520282_btth4\giaodich.cpp
+	"GiaoDich.h"
+
+1746021907 d:\oop\24520282_btth4\giaodich.h
+	<bits/stdc++.h>
+
+1746022137 source:d:\oop\24520282_btth4\giaodich.cpp
+	"GiaoDich.h"
+
+1746022077 d:\oop\24520282_btth4\vang.h
+	"GiaoDich.h"
+
+1746022448 d:\oop\24520282_btth4\ngoaite.h
+	"GiaoDich.h"
+
+1746063648 source:d:\oop\24520282_btth4\batdongsan.cpp
+	"BatDongSan.h"
+
+1746063424 d:\oop\24520282_btth4\batdongsan.h
+	<bits/stdc++.h>
+
+1746063671 source:d:\oop\24520282_btth4\main2.cpp
+	"BatDongSan.h"
+
