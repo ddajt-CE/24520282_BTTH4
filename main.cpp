@@ -1,52 +1,60 @@
-#include "NgoaiTe.h"
-#include "GiaoDich.h"
-#include "Vang.h"
+#include "BatDongSan.h"
+#include "NhaPho.h"
+#include "Dat.h"
+#include "ChungCu.h"
 
 int main(){
-int maxn = INT_MIN, minx = INT_MAX;
-bool ty = false;
-int pos1 = -1, pos2 = -2;
+int maxn = INT_MIN, pos = -1;
+int Tb = 0, sum = 0;
+bool co = false;
+cout << "-----Danh sach giao dich dat-----\n";
 int n;
-cout << "-----Giao Dich Vang-----\n";
-cout << "So luong giao dich vang:"; cin >> n;
-vector<Vang> v(n);
+cout << "So luong giao dich:" ; cin >> n;
+vector<Dat> L(n);
 for(int i = 0;i<n;i++){
-v[i].Nhap(i);
-if(v[i].Transaction() > maxn){
-    maxn = v[i].Transaction();
-    pos1 = i;
+L[i].Nhap(i);
 }
-}
-cout << "-----Giao Dich Ngoai Te-----\n";
-cout << "So luong giao dich ngoai te:";int m; cin >> m;
-vector<NgoaiTe> N(m);
-for(int i = 0;i<n;i++){
-    N[i].Nhap(i);
-    if(N[i].Transaction() < minx){
-        minx = N[i].Transaction();
-        pos2 = i;
+cout << "-----Danh sach giao dich nha pho-----\n";
+int m;
+cout << "So luong giao dich:"; cin >> m;
+vector<NhaPho> H(m);
+for(int i = 0;i<m;i++){
+    H[i].Nhap(i);
+    if(maxn < H[i].Transaction()){
+        maxn = H[i].Transaction();
+        pos = i;
     }
 }
-cout << "-----Giao dich vang co gia tri cao nhat-----\n";
-v[pos1].Xuat();
-cout << "Gia tri:" << maxn << endl;
-cout << "-----Giao dich ngoai te co gia tri thap nhat-----\n";
-N[pos2].Xuat();
-cout << "Gia tri:" << minx << endl;
-cout << "-----Giao dich tren 1 ty-----\n";
+cout << "-----Danh sach giao dich can ho chung cu-----\n";
+int k;
+cout << "So luong giao dich:";cin >>k ;
+vector<ChungCu> A(k);
+for(int i = 0;i<k;i++){
+    A[i].Nhap(i);
+    sum += A[i].Transaction();
+}
+cout << "Trung binh thanh tien cua can ho chung cu:"<< sum/(1.0 * k) << endl;
+cout << "Giao dich nha pho co gia tri cao nhat:\n";
+H[pos].Xuat();
+cout << "Gia Tri:" << maxn << endl;
+cout <<"-----Danh sach giao dich thang 12 nam 2024-----\n";
 for(int i = 0;i<n;i++){
-    if(v[i].Transaction() > 1000000000) {
-            v[i].Xuat();
-            ty = true;
+    if(L[i].getNgayGiao().find("12/2024") != string::npos){
+        L[i].Xuat();
+        co = true;
     }
 }
 for(int i = 0;i<m;i++){
-    if(N[i].Transaction() > 1000000000) {
-        N[i].Xuat();
-        ty = true;
+    if(H[i].getNgayGiao().find("12/2024") != string::npos){
+        H[i].Xuat();
+        co = true;
     }
 }
-if(!ty) cout << "Khong co giao dich tren 1 ty";
-
-
+for(int i = 0;i<k;i++){
+    if(A[i].getNgayGiao().find("12/2024") != string::npos){
+        A[i].Xuat();
+        co = true;
+    }
+}
+if(!co) cout << "Khong co giao dich thang 12 nam 2024.";
 }
